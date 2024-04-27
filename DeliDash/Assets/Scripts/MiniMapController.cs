@@ -8,6 +8,6 @@ public class MiniMapController : MonoBehaviour
     public GameObject player;
     private void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, 40, player.transform.position.z);
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -100);
     }
 }
