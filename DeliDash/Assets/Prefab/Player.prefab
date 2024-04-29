@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198726025790505564}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20134863, y: -0.064624526, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,9 +150,10 @@ GameObject:
   - component: {fileID: 5589476822813914207}
   - component: {fileID: 8979618105497421558}
   - component: {fileID: 538563187336292385}
+  - component: {fileID: 2794505655722621436}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,11 +308,28 @@ MonoBehaviour:
   acceleration: 20
   rb: {fileID: 8979618105497421558}
   spriteRenderer: {fileID: 3531565754902979481}
-  violatingAllert: {fileID: 8141667399720013443}
   upSprite: {fileID: 21300000, guid: c5dd47acf78385e438fc3c9bd2a6e742, type: 3}
   downSprite: {fileID: 21300000, guid: 5de359abb6fe09e44b42708853ad929e, type: 3}
   leftSprite: {fileID: 21300000, guid: b91540aa6544bc1489f1f6cba85ff2b8, type: 3}
   rightSprite: {fileID: 21300000, guid: 85fa574f591efca42a31c2a14e9387de, type: 3}
+  terrainTilemap: {fileID: 0}
+  roadTile: {fileID: 11400000, guid: cbb7a27f04c58b84992858c7aff1ef1f, type: 2}
+  grassTile: {fileID: 11400000, guid: b5c1b4bea3bf8ae4ca1b7efb7fdf0e4b, type: 2}
+  roadSpeed: 6
+  grassSpeed: 3
+--- !u!114 &2794505655722621436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525660394473430768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d76076ff6c33c4fb78fa4fe446209d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  violatingAllert: {fileID: 8141667399720013443}
 --- !u!1 &8141667399720013443
 GameObject:
   m_ObjectHideFlags: 0

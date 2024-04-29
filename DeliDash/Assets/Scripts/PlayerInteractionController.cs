@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInteractionController : MonoBehaviour
 {
+    public event Action OnTrafficViolation;
+    private bool hasViolated = false;
     [SerializeField] private GameObject violatingAllert;
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,26 +15,33 @@ public class PlayerInteractionController : MonoBehaviour
             {
                 Debug.Log("Violation: Player ran a red light!");
                 HandleTrafficViolation(true);
+                OnTrafficViolation?.Invoke();
+                hasViolated=true;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+         if (other.CompareTag("TrafficLight"))
+        {
+            TrafficLightController trafficLight = FindTrafficLightController(other);
+            if(trafficLight != null && !trafficLight.IsRedLight()){
+                HandleTrafficViolation(false);
+                hasViolated=false;
+            }
+            else if (!hasViolated && trafficLight != null && trafficLight.IsRedLight())
+            {
+                Debug.Log("Violation: Player ran a red light!");
+                HandleTrafficViolation(true);
+                OnTrafficViolation?.Invoke();
+                hasViolated=true;
             }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         HandleTrafficViolation(false);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Car"))
-        {
-            Debug.Log("Accident: Player collided with another car!");
-            HandleTrafficAccident("car");
-        }
-        else if (collision.gameObject.CompareTag("Pedestrian"))
-        {
-            Debug.Log("Accident: Player collided with a pedestrian!");
-            HandleTrafficAccident("pedestrian");
-        }
+        hasViolated=false;
     }
 
     private TrafficLightController FindTrafficLightController(Collider2D collider)
@@ -51,8 +59,6 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void HandleTrafficViolation(bool isViolating)
     {
-        // Implement what happens on a traffic rule violation
-        Debug.Log("Handle traffic violation logic here. Maybe reduce points or notify the player.");
         if (isViolating)
         {
             violatingAllert.SetActive(true);
@@ -61,12 +67,5 @@ public class PlayerInteractionController : MonoBehaviour
         {
             violatingAllert.SetActive(false);
         }
-    }
-
-    private void HandleTrafficAccident(string objectType)
-    {
-        // Implement what happens on a traffic accident
-        Debug.Log($"Handle traffic accident logic here. Involved object type: {objectType}.");
-        // Possible actions: deduct points, end game, decrease health, etc.
     }
 }
