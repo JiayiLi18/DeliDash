@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7191396467511532575}
   - component: {fileID: 7231034267688016513}
   m_Layer: 0
-  m_Name: Ppl
+  m_Name: Pedestrian
   m_TagString: Pedestrian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

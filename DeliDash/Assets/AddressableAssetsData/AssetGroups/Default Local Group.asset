@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: d7de9ea259ef1c840a089e16eb82a468
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 07cbe6245ff6eb74c9cc9dafde1f41dd
+    m_Address: Car
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac609e2687c1f2d4b9da3a41b1379228
+    m_Address: TrafficPolice
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: eb4dde76f624ce34e8a5cc0ac61e7974, type: 2}
   m_SchemaSet:
