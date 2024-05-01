@@ -11,10 +11,10 @@ public class TaskUI : MonoBehaviour
     public void UpdateTaskUI(Task task)
     {
         string taskStatus = "Task Status:\n";
-        if (task.isPickedUp)
+        if (task.taskStatus == TaskStatus.IsPickedUp)
         {
             taskStatus += "Takeaway Picked Up\n";
-            if (task.isDelivered)
+            if (task.taskStatus == TaskStatus.Delivered)
             {
                 taskStatus += "Takeaway Delivered";
             }
